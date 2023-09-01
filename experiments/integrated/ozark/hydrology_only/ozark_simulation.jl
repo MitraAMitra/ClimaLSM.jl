@@ -1,10 +1,10 @@
-t0 = FT(140 * 3600 * 24)
-N_days = 140
-tf = t0 + FT(3600 * 24 * N_days)
-dt = FT(225)
-n = 16
+t0 = FT(140 * 3600 * 24)#start day
+N_days = 140#total number of days to run the simulation
+tf = t0 + FT(3600 * 24 * N_days)# end day
+dt = FT(1700)#time step in seconds
+n = 20#interval of saving data is n*dt
 saveat = Array(t0:(n * dt):tf)
 timestepper = CTS.ARS222()
 norm_condition = CTS.MaximumError(FT(1e-8))
 conv_checker = CTS.ConvergenceChecker(; norm_condition)
-max_iterations = 20
+max_iterations = 50
